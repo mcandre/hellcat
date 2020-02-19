@@ -48,12 +48,6 @@ Hellcat is a combination of familiar file system diagnostics, such as `ls`, `cat
 * Can dump hex file contents
 * Can recurse
 
-# BENCHMARK
-
-Excerpt of memory usage during a long run session.
-
-![demon kitty](https://raw.githubusercontent.com/mcandre/hellcat/master/hellcat.gif)
-
 # DOWNLOAD
 
 https://github.com/mcandre/hellcat/releases
