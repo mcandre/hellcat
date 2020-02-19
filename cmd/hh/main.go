@@ -57,7 +57,7 @@ func main() {
 
 	if err := config.Roam(); err != nil {
 		if e, ok := err.(*os.PathError); ok {
-			fmt.Printf("Error loading path: %v\n", e.Path)
+			fmt.Fprintf(os.Stderr, "Error loading path: %v\n", e.Path)
 			os.Exit(1)
 		}
 

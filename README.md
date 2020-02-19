@@ -48,6 +48,15 @@ Hellcat is a combination of familiar file system diagnostics, such as `ls`, `cat
 * Can dump hex file contents
 * Can recurse
 
+# BENCHMARK
+
+```console
+$ sudo hh -r /
+
+$ top
+74669  hh           207.4 00:43.66 11/2  0    32    6812K  0B     0B     74668 74668
+```
+
 # DOWNLOAD
 
 https://github.com/mcandre/hellcat/releases

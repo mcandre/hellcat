@@ -79,6 +79,11 @@ func (o Config) roamDirectory(pth string) error {
 	fis, err := ioutil.ReadDir(pth)
 
 	if err != nil {
+		if e, ok := err.(*os.PathError); ok {
+			fmt.Fprintf(os.Stderr, "Error loading path: %v\n", e.Path)
+			return nil
+		}
+
 		return err
 	}
 
@@ -89,7 +94,9 @@ func (o Config) roamDirectory(pth string) error {
 		ts := fi.ModTime()
 		sys := fi.Sys()
 
-		pth2 = path.Join(pth, pth2)
+		if !strings.HasPrefix(pth2, "/") {
+			pth2 = path.Join(pth, pth2)
+		}
 
 		var sysString string
 
@@ -106,7 +113,8 @@ func (o Config) roamDirectory(pth string) error {
 		neighbors, err2 := Neighborhood(pth2)
 
 		if err2 != nil {
-			return err2
+			fmt.Fprintf(os.Stderr, "Error loading path: %v\n", pth2)
+			neighbors = 1
 		}
 
 		neighborsSI, neighborsPrefix := humanize.ComputeSI(float64(neighbors))
@@ -120,14 +128,19 @@ func (o Config) roamDirectory(pth string) error {
 		tsRFC3339 := ts.UTC().Format(time.RFC3339)
 
 		var nameString string
+		var pthRelClean string
 
-		pthRel, err := filepath.Rel(o.Working, pth2)
+		if strings.HasPrefix(pth2, "/") {
+			pthRelClean = path.Clean(pth2)
+		} else {
+			pthRel, err := filepath.Rel(o.Working, pth2)
 
-		if err != nil {
-			return err
+			if err != nil {
+				return err
+			}
+
+			pthRelClean = path.Clean(pthRel)
 		}
-
-		pthRelClean := path.Clean(pthRel)
 
 		if mode&os.ModeSymlink != 0 {
 			target, err2 := os.Readlink(pth2)
@@ -229,7 +242,13 @@ func (o Config) roamFile(pth string) error {
 // Roam prints file system information.
 func (o Config) Roam() error {
 	for _, pth := range o.Toplevels {
-		pth2 := path.Join(o.Working, pth)
+		var pth2 string
+
+		if strings.HasPrefix(pth, "/") {
+			pth2 = pth
+		} else {
+			pth2 = path.Join(o.Working, pth)
+		}
 
 		fi, err := os.Stat(pth2)
 
