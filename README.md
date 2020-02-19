@@ -8,6 +8,19 @@ Excerpt: Hellcat cruising through `/`
 
 ![demon kitty](hellcat.gif)
 
+# NOTABLE FEATURES
+
+Hellcat is convenient for quickly navigating large project directories. You can zoom through nested projects, previewing contents right within the terminal!
+
+* Unicode friendly
+* Performant, low memory requirement
+* Accepts directories and regular files
+* Easy for light typists
+* Accepts symlinks, including broken symlinks
+* Accepts text and binary files
+* Can dump hex file contents
+* Can recurse
+
 # examples/
 
 ```console
@@ -39,19 +52,6 @@ $ hh 1x1.png
 ```
 
 See `hh -h` for more options.
-
-# NOTABLE FEATURES
-
-Hellcat is a combination of familiar file system diagnostics, such as `ls`, `cat`, and `od`. Hellcat is convenient for quickly navigating large project directories. You can zoom through nested projects, previewing contents right within the terminal!
-
-* Unicode friendly
-* Performant, low memory requirement
-* Accepts directories and regular files
-* Easy for light typists
-* Accepts symlinks, including broken symlinks
-* Accepts text and binary files
-* Can dump hex file contents
-* Can recurse
 
 # BENCHMARK
 
