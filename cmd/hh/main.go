@@ -36,16 +36,16 @@ func main() {
 		os.Exit(0)
 	}
 
-	toplevels := flag.Args()
-
-	if len(toplevels) == 0 {
-		toplevels = []string{"."}
-	}
-
 	cwd, err := os.Getwd()
 
 	if err != nil {
 		panic(err)
+	}
+
+	toplevels := flag.Args()
+
+	if len(toplevels) == 0 {
+		toplevels = []string{cwd}
 	}
 
 	config := hellcat.Config{

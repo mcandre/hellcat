@@ -2,6 +2,12 @@
 
 ![meow](https://raw.githubusercontent.com/mcandre/hellcat/master/hellcat.png)
 
+# ABOUT
+
+Excerpt: Hellcat cruising through `/`
+
+![demon kitty](hellcat.gif)
+
 # examples/
 
 ```console
@@ -9,6 +15,7 @@ $ hh
 -rw-rw-rw-    1   andrew    staff  95B 2020-02-19T16:44:00Z 1x1.png
 Lrwxr-xr-x    1   andrew    staff   8B 2020-02-19T17:02:14Z b.txt -> test.txt
 Lrwxr-xr-x    1   andrew    staff  10B 2020-02-19T18:39:49Z c.txt -> nosuchfile
+drwxr-xr-x    3   andrew    staff  96B 2020-02-19T23:38:01Z products
 -rw-r--r--    1   andrew    staff  29B 2020-02-19T15:34:37Z test.txt
 Lrwxr-xr-x    1   andrew    staff   7B 2020-02-19T19:23:56Z z.png -> 1x1.png
 drwxr-xr-x    3   andrew    staff  96B 2020-02-19T22:17:59Z испытание
@@ -33,11 +40,9 @@ $ hh 1x1.png
 
 See `hh -h` for more options.
 
-# ABOUT
+# NOTABLE FEATURES
 
 Hellcat is a combination of familiar file system diagnostics, such as `ls`, `cat`, and `od`. Hellcat is convenient for quickly navigating large project directories. You can zoom through nested projects, previewing contents right within the terminal!
-
-## Notable Features
 
 * Unicode friendly
 * Performant, low memory requirement
@@ -148,3 +153,4 @@ Hellcat operates under an 80% utility principle. When in doubt, look to the clas
 * [fsck](https://linux.die.net/man/8/fsck)
 * [grep](https://linux.die.net/man/1/grep)
 * [find](https://linux.die.net/man/1/find)
+* [du](https://linux.die.net/man/1/du)

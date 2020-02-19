@@ -75,7 +75,7 @@ func Abbreviate(s string, limit int) string {
 }
 
 // roamFile prints directory information.
-func (o Config) roamDirectory(pth string) error {
+func (o Config) roamDirectory(toplevel string, pth string) error {
 	fis, err := ioutil.ReadDir(pth)
 
 	if err != nil {
@@ -98,6 +98,14 @@ func (o Config) roamDirectory(pth string) error {
 			pth2 = path.Join(pth, pth2)
 		}
 
+		pthRel, err2 := filepath.Rel(toplevel, pth2)
+
+		if err2 != nil {
+			return err2
+		}
+
+		pthRelClean := path.Clean(pthRel)
+
 		var sysString string
 
 		if sys != nil {
@@ -110,10 +118,10 @@ func (o Config) roamDirectory(pth string) error {
 			sysString = ss
 		}
 
-		neighbors, err2 := Neighborhood(pth2)
+		neighbors, err2 := Neighborhood(pthRelClean)
 
 		if err2 != nil {
-			fmt.Fprintf(os.Stderr, "Error loading path: %v\n", pth2)
+			fmt.Fprintf(os.Stderr, "Error loading path: %v\n", pthRelClean)
 			neighbors = 1
 		}
 
@@ -128,19 +136,6 @@ func (o Config) roamDirectory(pth string) error {
 		tsRFC3339 := ts.UTC().Format(time.RFC3339)
 
 		var nameString string
-		var pthRelClean string
-
-		if strings.HasPrefix(pth2, "/") {
-			pthRelClean = path.Clean(pth2)
-		} else {
-			pthRel, err := filepath.Rel(o.Working, pth2)
-
-			if err != nil {
-				return err
-			}
-
-			pthRelClean = path.Clean(pthRel)
-		}
 
 		if mode&os.ModeSymlink != 0 {
 			target, err2 := os.Readlink(pth2)
@@ -160,11 +155,11 @@ func (o Config) roamDirectory(pth string) error {
 			mode := fi.Mode()
 
 			if mode.IsDir() {
-				if err2 := o.roamDirectory(pth2); err2 != nil {
+				if err2 := o.roamDirectory(toplevel, pth2); err2 != nil {
 					return err2
 				}
 			} else {
-				if err2 := o.roamFile(pth2); err2 != nil {
+				if err2 := o.roamFile(pthRelClean); err2 != nil {
 					return err2
 				}
 			}
@@ -242,6 +237,12 @@ func (o Config) roamFile(pth string) error {
 // Roam prints file system information.
 func (o Config) Roam() error {
 	for _, pth := range o.Toplevels {
+		pth, err := filepath.Abs(pth)
+
+		if err != nil {
+			return err
+		}
+
 		var pth2 string
 
 		if strings.HasPrefix(pth, "/") {
@@ -264,7 +265,7 @@ func (o Config) Roam() error {
 		mode := fi.Mode()
 
 		if mode.IsDir() {
-			if err2 := o.roamDirectory(pth2); err2 != nil {
+			if err2 := o.roamDirectory(pth, pth2); err2 != nil {
 				return err2
 			}
 		} else if err2 := o.roamFile(pth2); err2 != nil {
