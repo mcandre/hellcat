@@ -131,3 +131,7 @@ Hellcat operates under an 80% utility principle. When in doubt, look to the clas
 * [ls](https://linux.die.net/man/1/ls)
 * [cat](https://linux.die.net/man/1/cat)
 * [od](https://linux.die.net/man/1/od)
+* [mount](https://linux.die.net/man/8/mount)
+* [fsck](https://linux.die.net/man/8/fsck)
+* [grep](https://linux.die.net/man/1/grep)
+* [find](https://linux.die.net/man/1/find)
