@@ -38,6 +38,7 @@ Hellcat is a combination of familiar file system diagnostics, such as `ls`, `cat
 
 ## Notable Features
 
+* Performant, low memory requirement
 * Accepts directories and regular files
 * Accepts symlinks, including broken symlinks
 * Accepts text and binary files
