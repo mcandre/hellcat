@@ -153,4 +153,5 @@ Hellcat operates under an 80% utility principle. When in doubt, look to the clas
 * [fsck](https://linux.die.net/man/8/fsck)
 * [grep](https://linux.die.net/man/1/grep)
 * [find](https://linux.die.net/man/1/find)
+* [tree](https://linux.die.net/man/1/tree)
 * [du](https://linux.die.net/man/1/du)
