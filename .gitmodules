@@ -1,0 +1,9 @@
+[submodule "vendor/github.com/mcandre/mage-extras"]
+	path = vendor/github.com/mcandre/mage-extras
+	url = https://github.com/mcandre/mage-extras.git
+[submodule "vendor/github.com/meirf/gopart"]
+	path = vendor/github.com/meirf/gopart
+	url = https://github.com/meirf/gopart.git
+[submodule "vendor/github.com/dustin/go-humanize"]
+	path = vendor/github.com/dustin/go-humanize
+	url = https://github.com/dustin/go-humanize.git
