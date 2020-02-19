@@ -1,6 +1,6 @@
 # Hellcat: fs swiss army knife
 
-![demon kitty](https://raw.githubusercontent.com/mcandre/hellcat/master/hellcat.png)
+![meow](https://raw.githubusercontent.com/mcandre/hellcat/master/hellcat.png)
 
 # examples/
 
@@ -47,6 +47,12 @@ Hellcat is a combination of familiar file system diagnostics, such as `ls`, `cat
 * Accepts text and binary files
 * Can dump hex file contents
 * Can recurse
+
+# BENCHMARK
+
+Excerpt of memory usage during a long run session.
+
+![demon kitty](https://raw.githubusercontent.com/mcandre/hellcat/master/hellcat.gif)
 
 # DOWNLOAD
 
