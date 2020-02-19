@@ -16,7 +16,7 @@ import (
 )
 
 // Version is semver.
-const Version = "0.0.1"
+const Version = "0.0.2"
 
 // Config parameterizes hellcat navigation.
 type Config struct {
