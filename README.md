@@ -11,6 +11,7 @@ Lrwxr-xr-x    1   andrew    staff   8B 2020-02-19T17:02:14Z b.txt -> test.txt
 Lrwxr-xr-x    1   andrew    staff  10B 2020-02-19T18:39:49Z c.txt -> nosuchfile
 -rw-r--r--    1   andrew    staff  29B 2020-02-19T15:34:37Z test.txt
 Lrwxr-xr-x    1   andrew    staff   7B 2020-02-19T19:23:56Z z.png -> 1x1.png
+drwxr-xr-x    3   andrew    staff  96B 2020-02-19T22:17:59Z испытание
 
 $ hh test.txt
 all ur base are belong to us
@@ -38,6 +39,7 @@ Hellcat is a combination of familiar file system diagnostics, such as `ls`, `cat
 
 ## Notable Features
 
+* Unicode friendly
 * Accepts directories and regular files
 * Accepts symlinks, including broken symlinks
 * Accepts text and binary files
