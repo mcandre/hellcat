@@ -35,12 +35,14 @@ See `hh -h` for more options.
 
 # ABOUT
 
-Hellcat is a combination of familiar file system diagnostics, such as `ls`, `cat`, and `od`. Hellcat is a convenient way to quickly navigate large directories and preview contents, right within the terminal!
+Hellcat is a combination of familiar file system diagnostics, such as `ls`, `cat`, and `od`. Hellcat is convenient for quickly navigating large project directories. You can zoom through nested projects, previewing contents right within the terminal!
 
 ## Notable Features
 
 * Unicode friendly
+* Performant, low memory requirement
 * Accepts directories and regular files
+* Easy for light typists
 * Accepts symlinks, including broken symlinks
 * Accepts text and binary files
 * Can dump hex file contents
