@@ -1,6 +1,6 @@
 # Hellcat: fs swiss army knife
 
-![meow](https://raw.githubusercontent.com/mcandre/hellcat/master/hellcat.png)
+![meow](hellcat.png)
 
 # ABOUT
 
