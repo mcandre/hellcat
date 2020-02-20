@@ -142,9 +142,9 @@ Keep the code tidy:
 $ mage lint
 ```
 
-# CREDITS
+# SEE ALSO
 
-Hellcat operates under an 80% utility principle. When in doubt, look to the classic tools:
+Hellcat operates under an 80% utility principle. When in doubt, look to some related tools:
 
 * [ls](https://linux.die.net/man/1/ls)
 * [cat](https://linux.die.net/man/1/cat)
@@ -155,3 +155,7 @@ Hellcat operates under an 80% utility principle. When in doubt, look to the clas
 * [find](https://linux.die.net/man/1/find)
 * [tree](https://linux.die.net/man/1/tree)
 * [du](https://linux.die.net/man/1/du)
+* [more](https://linux.die.net/man/1/more)
+* [less](https://linux.die.net/man/1/less)
+* [fewer](https://github.com/mcandre/tonixxx/tree/master/examples/fewer)
+* [nnn](https://github.com/jarun/nnn)
