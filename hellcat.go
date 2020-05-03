@@ -188,6 +188,8 @@ func (o Config) roamFile(pth string) error {
 		}
 	}()
 
+	cursor := 0
+
 	buf := make([]byte, 1024)
 
 	count, err := file.Read(buf)
@@ -212,8 +214,10 @@ func (o Config) roamFile(pth string) error {
 					segments = append(segments, fmt.Sprintf("%02x", b))
 				}
 
-				fmt.Printf("%08d %v\n", i.Low, strings.Join(segments, " "))
+				fmt.Printf("%08d %v\n", cursor + i.Low, strings.Join(segments, " "))
 			}
+
+			cursor += count
 		} else {
 			if _, err2 := os.Stdout.Write(buf[:count]); err2 != nil {
 				return err2
